@@ -23,13 +23,4 @@ public class SecurityConfig implements WebMvcConfigurer {
 
         return http.build();
     }
-
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**") // Allow all paths
-                .allowedOrigins("http://localhost:64611") // Frontend (Flutter) URL - update if needed
-                .allowedMethods("GET", "POST", "PUT", "DELETE")
-                .allowedHeaders("*")
-                .allowCredentials(true);
-    }
 }
