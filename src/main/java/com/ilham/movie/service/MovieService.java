@@ -11,10 +11,6 @@ public class MovieService {
     @Autowired
     private MovieRepository repository;
 
-    public List<Movie> getAllMovies() {
-        return repository.findAll();
-    }
-
     // public List<Movie> searchMoviesByTitle(String title) {
     // return repository.findByTitleContainingIgnoreCase(title);
     // }
@@ -27,14 +23,4 @@ public class MovieService {
         repository.deleteById(id);
     }
 
-    public Movie updateMovie(String id, Movie movieDetails) {
-        return repository.findById(id).map(movie -> {
-            movie.setTitle(movieDetails.getTitle());
-            movie.setDirector(movieDetails.getDirector());
-            movie.setSummary(movieDetails.getSummary());
-            movie.setGenres(movieDetails.getGenres());
-            movie.setImageUrl(movieDetails.getImageUrl());
-            return repository.save(movie);
-        }).orElseThrow(() -> new RuntimeException("Movie not found"));
-    }
 }
