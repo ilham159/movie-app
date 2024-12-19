@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class MovieDetailsScreen extends StatelessWidget {
   final int movieId;
 
-  MovieDetailsScreen({required this.movieId});
+  const MovieDetailsScreen({super.key, required this.movieId});
 
   @override
   Widget build(BuildContext context) {
